@@ -20,13 +20,31 @@ export default new NativeFunction({
   ],
 
   async execute(ctx, [single]) {
-    const stats = pidusage(process.pid);
     const totalCores = os.cpus().length;
+    const sampleCount = 3;
+    const interval = 100;
+    const samples = [];
 
-    const cpuUsage = single
-      ? (await stats).cpu.toFixed(2)
-      : (((await stats).cpu / totalCores).toFixed(2));
+    for (let i = 0; i < sampleCount; i++) {
+      const stats = await pidusage(process.pid);
+      const rawCpu = stats.cpu;
 
-    return this.success(cpuUsage)
+      if (rawCpu >= 0 && rawCpu <= 100) {
+        samples.push(single ? rawCpu : rawCpu / totalCores);
+      }
+
+      if (i < sampleCount - 1) await new Promise((resolve) => setTimeout(resolve, interval));
+    }
+
+    const sortedSamples = [...samples].sort((a, b) => a - b);
+    const median = sortedSamples[Math.floor(sortedSamples.length / 2)];
+
+    const filteredSamples = samples.filter((val) => val <= median * 1.5);
+
+    const averageCpuUsage = filteredSamples.length
+      ? (filteredSamples.reduce((sum, val) => sum + val, 0) / filteredSamples.length).toFixed(2)
+      : "0.00";
+
+    return this.success(averageCpuUsage);
   },
 });

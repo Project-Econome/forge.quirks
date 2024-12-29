@@ -5,11 +5,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const forgescript_1 = require("@tryforge/forgescript");
 const pidusage_1 = __importDefault(require("pidusage"));
+const os_1 = __importDefault(require("os"));
 exports.default = new forgescript_1.NativeFunction({
     name: "$cpuUsage",
     version: '1.0.0',
     description: "Returns the cpu usage of the process.",
     output: forgescript_1.ArgType.Number,
+    brackets: true,
     unwrap: true,
     args: [
         {
@@ -22,7 +24,10 @@ exports.default = new forgescript_1.NativeFunction({
     ],
     async execute(ctx, [single]) {
         const stats = (0, pidusage_1.default)(process.pid);
-        const cpuUsage = (await stats).cpu.toFixed(2);
+        const totalCores = os_1.default.cpus().length;
+        const cpuUsage = single
+            ? (await stats).cpu.toFixed(2)
+            : (((await stats).cpu / totalCores).toFixed(2));
         return this.success(cpuUsage);
     },
 });

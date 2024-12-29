@@ -7,7 +7,7 @@ export default new NativeFunction({
   version: '1.0.0',
   description: "Returns the cpu usage of the process.",
   output: ArgType.Number,
-  brackets: true,
+  brackets: false,
   unwrap: true,
   args: [
     {

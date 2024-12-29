@@ -11,7 +11,7 @@ exports.default = new forgescript_1.NativeFunction({
     version: '1.0.0',
     description: "Returns the cpu usage of the process.",
     output: forgescript_1.ArgType.Number,
-    brackets: true,
+    brackets: false,
     unwrap: true,
     args: [
         {

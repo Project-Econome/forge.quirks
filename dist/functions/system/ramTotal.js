@@ -30,13 +30,17 @@ exports.default = new forgescript_1.NativeFunction({
         switch (unit) {
             case types_1.FileUnit.KB:
                 result = (totalMemory / 1024).toFixed(2) + " KB";
+                break;
             case types_1.FileUnit.MB:
                 result = (totalMemory / (1024 * 1024)).toFixed(2) + " MB";
+                break;
             case types_1.FileUnit.GB:
                 result = (totalMemory / (1024 * 1024 * 1024)).toFixed(2) + " GB";
+                break;
             case types_1.FileUnit.B:
             default:
                 result = totalMemory.toFixed(2) + " B";
+                break;
         }
         return this.success(result);
     },

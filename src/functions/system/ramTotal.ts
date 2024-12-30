@@ -27,13 +27,17 @@ export default new NativeFunction({
     switch (unit) {
       case FileUnit.KB:
         result = (totalMemory / 1024).toFixed(2) + " KB";
+        break;
       case FileUnit.MB:
         result =  (totalMemory / (1024 * 1024)).toFixed(2) + " MB";
+        break;
       case FileUnit.GB:
         result =  (totalMemory / (1024 * 1024 * 1024)).toFixed(2) + " GB";
+        break;
       case FileUnit.B:
       default:
         result =  totalMemory.toFixed(2) + " B";
+        break;
     }
 
     return this.success(result);

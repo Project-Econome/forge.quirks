@@ -6,7 +6,6 @@ export default new NativeFunction({
   version: '1.0.0',
   description: "Returns the cpu temperature.",
   output: ArgType.Number,
-  brackets: false,
   unwrap: false,
 
   async execute() {

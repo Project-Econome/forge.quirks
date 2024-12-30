@@ -10,7 +10,6 @@ exports.default = new forgescript_1.NativeFunction({
     version: '1.0.0',
     description: "Returns the cpu temperature.",
     output: forgescript_1.ArgType.Number,
-    brackets: false,
     unwrap: false,
     async execute() {
         const cpuTemp = await systeminformation_1.default.cpuTemperature();

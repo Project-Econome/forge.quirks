@@ -14,8 +14,7 @@
   "author": "LynnuxDev",
   "license": "ISC",
   "dependencies": {
-    "pidusage": "^3.0.2",
-    "systeminformation": "^5.23.24"
+    "pidusage": "^3.0.2"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",

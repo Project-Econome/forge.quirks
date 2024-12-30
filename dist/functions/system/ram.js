@@ -12,7 +12,7 @@ exports.default = new forgescript_1.NativeFunction({
     version: '1.0.0',
     description: "Returns the ram usage.",
     output: forgescript_1.ArgType.Number,
-    brackets: true,
+    brackets: false,
     unwrap: true,
     args: [
         {

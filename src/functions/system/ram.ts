@@ -8,7 +8,7 @@ export default new NativeFunction({
   version: '1.0.0',
   description: "Returns the ram usage.",
   output: ArgType.Number,
-  brackets: true,
+  brackets: false,
   unwrap: true,
   args: [
     {

@@ -21,10 +21,20 @@ export default new NativeFunction({
       rest: false,
       required: true,
       type: ArgType.String
+    },
+    {
+      name: "embed",
+      description: "Show embeds.",
+      rest: false,
+      required: false,
+      type: ArgType.String
     }
   ],
 
-  async execute(ctx, [text, link]) {
-    return this.success(`[${text}](${link})`);
+  async execute(ctx, [text, link, embed]) {
+    const result = embed
+      ? `[${text}](${link})`
+      : `[${text}](<${link}>)`
+    return this.success(result);
   },
 });

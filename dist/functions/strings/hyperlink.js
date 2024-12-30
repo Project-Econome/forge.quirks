@@ -22,10 +22,20 @@ exports.default = new forgescript_1.NativeFunction({
             rest: false,
             required: true,
             type: forgescript_1.ArgType.String
+        },
+        {
+            name: "embed",
+            description: "Show embeds.",
+            rest: false,
+            required: false,
+            type: forgescript_1.ArgType.String
         }
     ],
-    async execute(ctx, [text, link]) {
-        return this.success(`[${text}](${link})`);
+    async execute(ctx, [text, link, embed]) {
+        const result = embed
+            ? `[${text}](${link})`
+            : `[${text}](<${link}>)`;
+        return this.success(result);
     },
 });
 //# sourceMappingURL=hyperlink.js.map

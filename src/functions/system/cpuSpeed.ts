@@ -10,7 +10,8 @@ interface CpuTemperatureInfo {
 }
 
 export default new NativeFunction({
-  name: "$cpuTemperature",
+  name: "$cpuTemp",
+  aliases: ["$cpuTemperature"],
   version: '1.0.0',
   description: "Returns the cpu temperature.",
   output: ArgType.Number,

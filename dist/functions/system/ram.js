@@ -11,7 +11,7 @@ exports.default = new forgescript_1.NativeFunction({
     aliases: ['$ramUsage'],
     version: '1.0.0',
     description: "Returns the ram usage.",
-    output: forgescript_1.ArgType.Number,
+    output: forgescript_1.ArgType.String,
     brackets: false,
     unwrap: true,
     args: [
@@ -31,18 +31,20 @@ exports.default = new forgescript_1.NativeFunction({
         }
     ],
     async execute(ctx, [type, system]) {
-        let result = 0;
+        let result = null;
         if (type) {
             if (system) {
                 const memory = await systeminformation_1.default.mem();
-                const memoryUsed = (memory.used / memory.total) * 100;
-                result = parseFloat(memoryUsed.toFixed(2));
+                const memoryUsage = (memory.used / memory.total) * 100;
+                const memoryUsed = parseFloat(memoryUsage.toFixed(2));
+                result = `${memoryUsed}% System`;
             }
             else {
                 const stats = await (0, pidusage_1.default)(process.pid);
                 const memory = await systeminformation_1.default.mem();
                 const memoryUsage = (stats.memory / memory.total) * 100;
-                result = memoryUsage;
+                const memoryUsed = parseFloat(memoryUsage.toFixed(2));
+                result = `${memoryUsed}% Process`;
             }
             ;
         }
@@ -51,12 +53,12 @@ exports.default = new forgescript_1.NativeFunction({
                 const memory = await systeminformation_1.default.mem();
                 const memoryUsage = memory.used;
                 const memoryUsageMB = memoryUsage / (1024 * 1024);
-                result = parseFloat(memoryUsage.toFixed(2));
+                result = `${parseFloat(memoryUsage.toFixed(2))}MB System`;
             }
             else {
                 const stats = await (0, pidusage_1.default)(process.pid);
                 const memoryUsage = stats.memory / (1024 * 1024);
-                result = memoryUsage;
+                result = `${parseFloat(memoryUsage.toFixed(2))}MB Process`;
             }
             ;
         }

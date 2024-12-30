@@ -37,13 +37,13 @@ exports.default = new forgescript_1.NativeFunction({
                 const memory = await systeminformation_1.default.mem();
                 const activeMemory = memory.used - memory.buffcache;
                 const systemMemoryPercentage = (activeMemory / memory.total) * 100;
-                result = `${systemMemoryPercentage}% System`;
+                result = `${systemMemoryPercentage.toFixed(2)}%`;
             }
             else {
                 const stats = await (0, pidusage_1.default)(process.pid);
                 const memory = await systeminformation_1.default.mem();
                 const memoryUsage = (stats.memory / memory.total) * 100;
-                const memoryUsed = parseFloat(memoryUsage.toFixed(2));
+                const memoryUsed = memoryUsage.toFixed(2);
                 result = `${memoryUsed}%`;
             }
             ;
@@ -53,12 +53,12 @@ exports.default = new forgescript_1.NativeFunction({
                 const memory = await systeminformation_1.default.mem();
                 const memoryUsage = memory.used;
                 const memoryUsageMB = memoryUsage / (1024 * 1024);
-                result = `${parseFloat(memoryUsageMB.toFixed(2))}MB`;
+                result = `${memoryUsageMB.toFixed(2)}MB`;
             }
             else {
                 const stats = await (0, pidusage_1.default)(process.pid);
                 const memoryUsage = stats.memory / (1024 * 1024);
-                result = `${parseFloat(memoryUsage.toFixed(2))}MB`;
+                result = `${memoryUsage.toFixed(2)}MB`;
             }
             ;
         }

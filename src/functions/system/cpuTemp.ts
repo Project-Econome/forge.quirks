@@ -1,14 +1,16 @@
 import { ArgType, NativeFunction } from "@tryforge/forgescript";
+import si from "systeminformation";
 
 export default new NativeFunction({
-  name: "$cpute",
+  name: "$cpuTemp",
   version: '1.0.0',
-  description: "Returns the cpu usage of the process.",
+  description: "Returns the cpu temperature.",
   output: ArgType.Number,
   brackets: false,
   unwrap: false,
 
   async execute() {
-    return this.success('te');
+    const cpuTemp = await si.cpuTemperature();
+    return this.success(cpuTemp);
   },
 });

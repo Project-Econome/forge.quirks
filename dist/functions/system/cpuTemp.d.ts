@@ -1,1 +1,0 @@
-//# sourceMappingURL=cpuTemp.d.ts.map

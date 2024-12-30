@@ -10,6 +10,8 @@ export default new NativeFunction({
 
   async execute() {
     const cpuTemp = await si.cpuTemperature();
-    return this.success(cpuTemp);
+    const mainTemp = cpuTemp.main;
+
+    return this.success(mainTemp);
   },
 });

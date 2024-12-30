@@ -13,7 +13,8 @@ exports.default = new forgescript_1.NativeFunction({
     unwrap: false,
     async execute() {
         const cpuTemp = await systeminformation_1.default.cpuTemperature();
-        return this.success(cpuTemp);
+        const mainTemp = cpuTemp.main;
+        return this.success(mainTemp);
     },
 });
 //# sourceMappingURL=cpuTemp.js.map

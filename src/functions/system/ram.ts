@@ -1,6 +1,7 @@
 import { ArgType, NativeFunction } from "@tryforge/forgescript";
 import pidusage from "pidusage";
 import si from "systeminformation";
+import os from 'os';
 
 export default new NativeFunction({
   name: "$ram",
@@ -33,26 +34,26 @@ export default new NativeFunction({
     if (type) {
       if (system) {
         const memory = await si.mem();
-        const memoryUsage = (memory.used / memory.total) * 100;
-        const memoryUsed = parseFloat(memoryUsage.toFixed(2));
-        result = `${memoryUsed}% System`
+        const activeMemory = memory.used - memory.buffcache;
+        const systemMemoryPercentage = (activeMemory / memory.total) * 100;
+        result = `${systemMemoryPercentage}% System`
       } else {
         const stats = await pidusage(process.pid);
         const memory = await si.mem();
         const memoryUsage = (stats.memory / memory.total) * 100;
         const memoryUsed = parseFloat(memoryUsage.toFixed(2));
-        result = `${memoryUsed}% Process`
+        result = `${memoryUsed}%`
       };
     } else {
       if (system) {
         const memory = await si.mem();
         const memoryUsage = memory.used;
         const memoryUsageMB = memoryUsage / (1024 * 1024);
-        result = `${parseFloat(memoryUsage.toFixed(2))}MB System`
+        result = `${parseFloat(memoryUsageMB.toFixed(2))}MB`
       } else {
         const stats = await pidusage(process.pid);
         const memoryUsage = stats.memory / (1024 * 1024);
-        result = `${parseFloat(memoryUsage.toFixed(2))}MB Process`
+        result = `${parseFloat(memoryUsage.toFixed(2))}MB`
 
       };
     };

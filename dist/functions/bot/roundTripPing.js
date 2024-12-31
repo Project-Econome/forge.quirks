@@ -28,7 +28,7 @@ exports.default = new forgescript_1.NativeFunction({
             response.on('end', () => {
                 const end = perf_hooks_1.performance.now();
                 const latency = end - start;
-                result = (`${latency.toFixed(2)}ms`);
+                result = `${latency.toFixed(2)}ms`;
             });
         }).on('error', (err) => {
             return this.customError('Error failed to make roundtrip:');

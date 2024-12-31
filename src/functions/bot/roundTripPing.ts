@@ -30,7 +30,7 @@ export default new NativeFunction({
         response.on('end', () => {
           const end = performance.now();
           const latency = end - start;
-          result = (`${latency.toFixed(2)}ms`);
+          result = `${latency.toFixed(2)}ms`;
         });
       }
     ).on('error', (err) => {

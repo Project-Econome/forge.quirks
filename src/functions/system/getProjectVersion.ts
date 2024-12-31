@@ -7,7 +7,6 @@ export default new NativeFunction({
   version: '1.0.0',
   description: "Returns the version from your package.json usage.",
   output: ArgType.String,
-  brackets: false,
   unwrap: false,
 
   async execute() {

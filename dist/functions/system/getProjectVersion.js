@@ -8,7 +8,6 @@ exports.default = new forgescript_1.NativeFunction({
     version: '1.0.0',
     description: "Returns the version from your package.json usage.",
     output: forgescript_1.ArgType.String,
-    brackets: false,
     unwrap: false,
     async execute() {
         let result = '';

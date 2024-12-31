@@ -19,6 +19,7 @@
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
+    "@tryforge/forge.db": "github:tryforge/forgedb",
     "@tryforge/forgescript": "^1.4.0",
     "@types/jest": "^29.5.13",
     "@types/node": "^22.7.4",

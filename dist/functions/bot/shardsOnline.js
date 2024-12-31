@@ -9,7 +9,7 @@ exports.default = new forgescript_1.NativeFunction({
     output: forgescript_1.ArgType.Number,
     unwrap: false,
     async execute(ctx) {
-        const onlineShards = ctx.client.ws.shards.filter(shard => shard.status === discord_js_1.Status.Ready);
+        const onlineShards = ctx.client.ws.shards.filter(shard => shard.status === discord_js_1.Status.Ready).size;
         return this.success(onlineShards);
     },
 });

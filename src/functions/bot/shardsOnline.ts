@@ -9,7 +9,7 @@ export default new NativeFunction({
   unwrap: false,
 
   async execute(ctx) {
-    const onlineShards = ctx.client.ws.shards.filter(shard => shard.status === Status.Ready);
+    const onlineShards = ctx.client.ws.shards.filter(shard => shard.status === Status.Ready).size;
   
     return this.success(onlineShards);
   },

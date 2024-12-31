@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const forgescript_1 = require("@tryforge/forgescript");
 const discord_js_1 = require("discord.js");
 exports.default = new forgescript_1.NativeFunction({
-    name: "$shardstatus",
+    name: "$shardsstatus",
     version: '1.0.0',
     description: "Returns the of all shards in a json format.",
     output: forgescript_1.ArgType.String,

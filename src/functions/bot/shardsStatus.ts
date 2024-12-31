@@ -2,7 +2,7 @@ import { ArgType, NativeFunction } from "@tryforge/forgescript";
 import { Status } from 'discord.js'
 
 export default new NativeFunction({
-  name: "$shardstatus",
+  name: "$shardsstatus",
   version: '1.0.0',
   description: "Returns the of all shards in a json format.",
   output: ArgType.String,

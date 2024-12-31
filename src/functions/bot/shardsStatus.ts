@@ -15,6 +15,6 @@ export default new NativeFunction({
       statusMap[shard.id] = Status[shard.status] || "Unknown";
     });
   
-    return this.success(statusMap);
+    return this.success(JSON.stringify(statusMap));
   },
 });

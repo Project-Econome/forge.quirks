@@ -13,7 +13,7 @@ exports.default = new forgescript_1.NativeFunction({
         ctx.client.ws.shards.forEach(shard => {
             statusMap[shard.id] = discord_js_1.Status[shard.status] || "Unknown";
         });
-        return this.success(statusMap);
+        return this.success(JSON.stringify(statusMap));
     },
 });
 //# sourceMappingURL=shardsStatus.js.map

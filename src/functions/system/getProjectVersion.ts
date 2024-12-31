@@ -14,7 +14,6 @@ export default new NativeFunction({
     const packageJsonPath = join(process.cwd(), 'package.json');
     try {
       const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf-8'));
-      console.log('Reading user package.json from:', packageJsonPath);
       result = `${packageJson.version}`;
     } catch (error) {
       if (error instanceof Error) {

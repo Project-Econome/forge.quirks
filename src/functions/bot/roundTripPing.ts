@@ -13,6 +13,7 @@ export default new NativeFunction({
   async execute(ctx) {
     const start = performance.now();
     let result = null
+    console.log('making request')
 
     https.get(
       'https://discord.com/api/v10/users/@me',
@@ -31,9 +32,11 @@ export default new NativeFunction({
           const end = performance.now();
           const latency = end - start;
           result = `${latency.toFixed(2)}ms`;
+          console.log(`latency = ${latency}`)
         });
       }
     ).on('error', (err) => {
+      console.log(err)
       return this.customError('Error failed to make roundtrip:');
     });
     return this.success(result);

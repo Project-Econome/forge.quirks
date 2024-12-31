@@ -16,6 +16,7 @@ exports.default = new forgescript_1.NativeFunction({
     async execute(ctx) {
         const start = perf_hooks_1.performance.now();
         let result = null;
+        console.log('making request');
         https_1.default.get('https://discord.com/api/v10/users/@me', {
             headers: {
                 Authorization: `Bot ${ctx.client.token}`,
@@ -29,8 +30,10 @@ exports.default = new forgescript_1.NativeFunction({
                 const end = perf_hooks_1.performance.now();
                 const latency = end - start;
                 result = `${latency.toFixed(2)}ms`;
+                console.log(`latency = ${latency}`);
             });
         }).on('error', (err) => {
+            console.log(err);
             return this.customError('Error failed to make roundtrip:');
         });
         return this.success(result);

@@ -4,8 +4,8 @@ import { Status } from 'discord.js'
 export default new NativeFunction({
   name: "$shardstatus",
   version: '1.0.0',
-  description: "Returns the total amount of shards.",
-  output: ArgType.Number,
+  description: "Returns the of all shards in a json format.",
+  output: ArgType.String,
   unwrap: false,
 
   async execute(ctx) {

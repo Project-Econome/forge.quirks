@@ -22,9 +22,9 @@ export default new NativeFunction({
       result = end - start
     } catch (error) {
       if (error instanceof Error) {
-        console.error('Error reading package.json:', error.message);
+        return this.customError('Error reading Database:', error.message);
       } else {
-        console.error('Error fetching data:', error);
+        return this.customError('Error reading Database:', error);
       }
     }
     return this.success(`${result}ms`);

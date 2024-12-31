@@ -8,7 +8,7 @@ exports.default = new forgescript_1.NativeFunction({
     output: forgescript_1.ArgType.Number,
     unwrap: false,
     async execute(ctx) {
-        const totalShards = ctx.client.options.shardCount;
+        const totalShards = ctx.client.ws.shards.size;
         return this.success(totalShards);
     },
 });

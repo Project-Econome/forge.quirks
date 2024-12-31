@@ -30,7 +30,6 @@ export default new NativeFunction({
 
   async execute(ctx, [type, system]) {
     let result = null
-
     if (type) {
       if (system) {
         const memory = await si.mem();

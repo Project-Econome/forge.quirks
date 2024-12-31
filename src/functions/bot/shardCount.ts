@@ -8,7 +8,7 @@ export default new NativeFunction({
   unwrap: false,
 
   async execute(ctx) {
-    const totalShards = ctx.client.options.shardCount;
+    const totalShards = ctx.client.ws.shards.size;
   
     return this.success(totalShards);
   },

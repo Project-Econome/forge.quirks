@@ -13,7 +13,6 @@ export default new NativeFunction({
   async execute(ctx) {
     const start = performance.now();
     let result = null
-    console.log('making request')
 
     const latency = await new Promise<string>((resolve, reject) => {
       https.get(
@@ -40,7 +39,6 @@ export default new NativeFunction({
         reject(err);
       });
     }).catch((err) => {
-      console.log(err);
       this.customError('Error failed to make roundtrip:');
       return;
     });

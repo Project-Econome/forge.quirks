@@ -16,7 +16,6 @@ exports.default = new forgescript_1.NativeFunction({
     async execute(ctx) {
         const start = perf_hooks_1.performance.now();
         let result = null;
-        console.log('making request');
         const latency = await new Promise((resolve, reject) => {
             https_1.default.get('https://discord.com/api/v10/users/@me', {
                 headers: {
@@ -36,7 +35,6 @@ exports.default = new forgescript_1.NativeFunction({
                 reject(err);
             });
         }).catch((err) => {
-            console.log(err);
             this.customError('Error failed to make roundtrip:');
             return;
         });

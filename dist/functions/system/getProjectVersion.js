@@ -14,7 +14,6 @@ exports.default = new forgescript_1.NativeFunction({
         const packageJsonPath = (0, path_1.join)(process.cwd(), 'package.json');
         try {
             const packageJson = JSON.parse((0, fs_1.readFileSync)(packageJsonPath, 'utf-8'));
-            console.log('Reading user package.json from:', packageJsonPath);
             result = `${packageJson.version}`;
         }
         catch (error) {

@@ -53,12 +53,12 @@ exports.default = new forgescript_1.NativeFunction({
                 const memory = await systeminformation_1.default.mem();
                 const memoryUsage = memory.used;
                 const memoryUsageMB = memoryUsage / (1024 * 1024);
-                result = `${memoryUsageMB.toFixed(2)}MB`;
+                result = `${memoryUsageMB.toFixed(2)} MB`;
             }
             else {
                 const stats = await (0, pidusage_1.default)(process.pid);
                 const memoryUsage = stats.memory / (1024 * 1024);
-                result = `${memoryUsage.toFixed(2)}MB`;
+                result = `${memoryUsage.toFixed(2)} MB`;
             }
             ;
         }

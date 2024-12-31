@@ -17,26 +17,30 @@ exports.default = new forgescript_1.NativeFunction({
         const start = perf_hooks_1.performance.now();
         let result = null;
         console.log('making request');
-        https_1.default.get('https://discord.com/api/v10/users/@me', {
-            headers: {
-                Authorization: `Bot ${ctx.client.token}`,
-            },
-        }, (response) => {
-            let data = '';
-            response.on('data', (chunk) => {
-                data += chunk;
+        const latency = await new Promise((resolve, reject) => {
+            https_1.default.get('https://discord.com/api/v10/users/@me', {
+                headers: {
+                    Authorization: `Bot ${ctx.client.token}`,
+                },
+            }, (response) => {
+                let data = '';
+                response.on('data', (chunk) => {
+                    data += chunk;
+                });
+                response.on('end', () => {
+                    const end = perf_hooks_1.performance.now();
+                    const latency = end - start;
+                    resolve(`${latency.toFixed(2)}ms`);
+                });
+            }).on('error', (err) => {
+                reject(err);
             });
-            response.on('end', () => {
-                const end = perf_hooks_1.performance.now();
-                const latency = end - start;
-                result = `${latency.toFixed(2)}ms`;
-                console.log(`latency = ${latency}`);
-            });
-        }).on('error', (err) => {
+        }).catch((err) => {
             console.log(err);
-            return this.customError('Error failed to make roundtrip:');
+            this.customError('Error failed to make roundtrip:');
+            return;
         });
-        return this.success(result);
+        return this.success(latency);
     },
 });
 //# sourceMappingURL=roundTripPing.js.map

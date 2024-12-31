@@ -27,6 +27,6 @@ export default new NativeFunction({
         console.error('Error fetching data:', error);
       }
     }
-    return this.success(result);
+    return this.success(`${result}ms`);
   },
 });

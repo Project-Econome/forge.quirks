@@ -27,7 +27,7 @@ exports.default = new forgescript_1.NativeFunction({
                 console.error('Error fetching data:', error);
             }
         }
-        return this.success(result);
+        return this.success(`${result}ms`);
     },
 });
 //# sourceMappingURL=dbping.js.map

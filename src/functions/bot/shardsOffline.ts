@@ -2,7 +2,7 @@ import { ArgType, NativeFunction } from "@tryforge/forgescript";
 import { Status } from 'discord.js';
 
 export default new NativeFunction({
-  name: "$shardsOnline",
+  name: "$shardsOffline",
   version: '1.0.0',
   description: "Returns the total amount of offline shards.",
   output: ArgType.Number,

@@ -1,1 +1,1 @@
-{"version":3,"file":"shardInfo.d.ts","sourceRoot":"","sources":["../../../src/functions/bot/shardInfo.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,cAAc,EAAE,MAAM,uBAAuB,CAAC;AAChE,OAAO,EAAE,SAAS,EAAE,MAAM,aAAa,CAAC;;;;;;;;;;;;;;;AAGxC,wBAgFG"}
+{"version":3,"file":"shardInfo.d.ts","sourceRoot":"","sources":["../../../src/functions/bot/shardInfo.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,OAAO,EAAE,cAAc,EAAE,MAAM,uBAAuB,CAAC;AAChE,OAAO,EAAE,SAAS,EAAE,MAAM,aAAa,CAAC;;;;;;;;;;;;;;;AAGxC,wBAiFG"}

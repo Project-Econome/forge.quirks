@@ -7,6 +7,7 @@ export default new NativeFunction({
   version: '1.0.0',
   description: "Returns the info on shard.",
   output: ArgType.Number,
+  brackets: true,
   unwrap: true,
   args: [
     {

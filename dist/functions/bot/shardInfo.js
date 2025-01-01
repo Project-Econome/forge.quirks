@@ -49,7 +49,7 @@ exports.default = new forgescript_1.NativeFunction({
                 result = 'Not available';
             }
         }
-        console.log(sid);
+        console.log(type);
         console.log(shardStack);
         switch (type) {
             case types_1.ShardInfo.id:

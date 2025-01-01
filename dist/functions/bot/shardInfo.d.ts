@@ -11,7 +11,7 @@ declare const _default: NativeFunction<[{
     description: string;
     type: ArgType.Enum;
     enum: typeof ShardInfo;
-    required: true;
+    required: false;
     rest: false;
 }], true>;
 export default _default;

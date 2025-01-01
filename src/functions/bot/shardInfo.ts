@@ -21,7 +21,7 @@ export default new NativeFunction({
       description: 'type to retrieve.',
       type: ArgType.Enum,
       enum: ShardInfo,
-      required: true,
+      required: false,
       rest: false
     }
   ],

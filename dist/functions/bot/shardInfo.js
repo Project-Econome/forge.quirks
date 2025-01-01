@@ -22,7 +22,7 @@ exports.default = new forgescript_1.NativeFunction({
             description: 'type to retrieve.',
             type: forgescript_1.ArgType.Enum,
             enum: types_1.ShardInfo,
-            required: true,
+            required: false,
             rest: false
         }
     ],

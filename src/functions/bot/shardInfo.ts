@@ -51,7 +51,10 @@ export default new NativeFunction({
       }
     }
 
+    console.log(sid)
+
     console.log(shardStack)
+
     switch (type) {
       case ShardInfo.id:
         result = shardStack?.id || "Not available";

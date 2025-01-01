@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ShardStatus = exports.FileUnit = void 0;
+exports.ShardInfo = exports.ShardStatus = exports.FileUnit = void 0;
 var FileUnit;
 (function (FileUnit) {
     FileUnit[FileUnit["B"] = 0] = "B";
@@ -21,4 +21,13 @@ var ShardStatus;
     ShardStatus["Identifying"] = "identifying";
     ShardStatus["Resuming"] = "resuming";
 })(ShardStatus || (exports.ShardStatus = ShardStatus = {}));
+var ShardInfo;
+(function (ShardInfo) {
+    ShardInfo[ShardInfo["status"] = 0] = "status";
+    ShardInfo[ShardInfo["guildcount"] = 1] = "guildcount";
+    ShardInfo[ShardInfo["ping"] = 2] = "ping";
+    ShardInfo[ShardInfo["id"] = 3] = "id";
+    ShardInfo[ShardInfo["lastPingTimestamp"] = 4] = "lastPingTimestamp";
+    ShardInfo[ShardInfo["ready"] = 5] = "ready";
+})(ShardInfo || (exports.ShardInfo = ShardInfo = {}));
 //# sourceMappingURL=types.js.map

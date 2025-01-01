@@ -17,3 +17,12 @@ export enum ShardStatus {
   Identifying = 'identifying',
   Resuming = 'resuming',
 }
+
+export enum ShardInfo {
+  status,
+  guildcount,
+  ping,
+  id,
+  lastPingTimestamp,
+  ready
+}

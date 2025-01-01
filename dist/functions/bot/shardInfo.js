@@ -45,7 +45,7 @@ exports.default = new forgescript_1.NativeFunction({
                 shardStack = shardInfo;
             }
             else {
-                shardStack = null;
+                result = 'Not available';
             }
         }
         console.log(shardStack);

@@ -46,7 +46,7 @@ export default new NativeFunction({
         };
         shardStack = shardInfo;
       } else {
-        shardStack = null;
+        result = 'Not available';
       }
     }
 

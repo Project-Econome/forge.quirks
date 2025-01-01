@@ -66,7 +66,7 @@ export default new NativeFunction({
         result = shardStack?.ping || "Not available";
 
       case ShardInfo.lastPingTimestamp:
-        result = shardStack?.lastPingTimestamp || "Not available";
+        result = shardStack?.lastPingTimestamp !== -1 ? shardStack?.lastPingTimestamp : "N/A";
 
       case ShardInfo.ready:
         result = shardStack?.ready || "Not available";
@@ -74,6 +74,6 @@ export default new NativeFunction({
       default:
         result = shardStack || { message: "Shard not found or invalid type" };
       }
-    return this.success(result);
+    return this.success(result ? JSON.stringify(result) : "No data available");
   },
 });

@@ -60,13 +60,13 @@ exports.default = new forgescript_1.NativeFunction({
             case types_1.ShardInfo.ping:
                 result = shardStack?.ping || "Not available";
             case types_1.ShardInfo.lastPingTimestamp:
-                result = shardStack?.lastPingTimestamp || "Not available";
+                result = shardStack?.lastPingTimestamp !== -1 ? shardStack?.lastPingTimestamp : "N/A";
             case types_1.ShardInfo.ready:
                 result = shardStack?.ready || "Not available";
             default:
                 result = shardStack || { message: "Shard not found or invalid type" };
         }
-        return this.success(result);
+        return this.success(result ? JSON.stringify(result) : "No data available");
     },
 });
 //# sourceMappingURL=shardInfo.js.map

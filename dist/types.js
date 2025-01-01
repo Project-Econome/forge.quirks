@@ -23,11 +23,11 @@ var ShardStatus;
 })(ShardStatus || (exports.ShardStatus = ShardStatus = {}));
 var ShardInfo;
 (function (ShardInfo) {
-    ShardInfo[ShardInfo["status"] = 0] = "status";
-    ShardInfo[ShardInfo["guildcount"] = 1] = "guildcount";
+    ShardInfo[ShardInfo["id"] = 0] = "id";
+    ShardInfo[ShardInfo["status"] = 1] = "status";
     ShardInfo[ShardInfo["ping"] = 2] = "ping";
-    ShardInfo[ShardInfo["id"] = 3] = "id";
-    ShardInfo[ShardInfo["lastPingTimestamp"] = 4] = "lastPingTimestamp";
-    ShardInfo[ShardInfo["ready"] = 5] = "ready";
+    ShardInfo[ShardInfo["lastPingTimestamp"] = 3] = "lastPingTimestamp";
+    ShardInfo[ShardInfo["ready"] = 4] = "ready";
+    ShardInfo[ShardInfo["guildcount"] = 5] = "guildcount";
 })(ShardInfo || (exports.ShardInfo = ShardInfo = {}));
 //# sourceMappingURL=types.js.map

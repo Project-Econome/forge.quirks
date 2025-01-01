@@ -17,11 +17,11 @@ export declare enum ShardStatus {
     Resuming = "resuming"
 }
 export declare enum ShardInfo {
-    status = 0,
-    guildcount = 1,
+    id = 0,
+    status = 1,
     ping = 2,
-    id = 3,
-    lastPingTimestamp = 4,
-    ready = 5
+    lastPingTimestamp = 3,
+    ready = 4,
+    guildcount = 5
 }
 //# sourceMappingURL=types.d.ts.map

@@ -19,10 +19,10 @@ export enum ShardStatus {
 }
 
 export enum ShardInfo {
-  status,
-  guildcount,
-  ping,
-  id,
-  lastPingTimestamp,
-  ready
+  id = 0,
+  status = 1,
+  ping = 2,
+  lastPingTimestamp = 3,
+  ready = 4,
+  guildcount = 5
 }

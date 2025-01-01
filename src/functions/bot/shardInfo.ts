@@ -51,31 +51,34 @@ export default new NativeFunction({
       }
     }
 
-    console.log(type)
-
-    console.log(shardStack)
-
     switch (type) {
       case ShardInfo.id:
         result = shardStack?.id || "Not available";
+        break;
 
       case ShardInfo.status:
         result = shardStack?.status || "Not available";
+        break;
 
       case ShardInfo.guildcount:
         result = shardStack?.guildCount || "Not available";
+        break;
 
       case ShardInfo.ping:
         result = shardStack?.ping || "Not available";
+        break;
 
       case ShardInfo.lastPingTimestamp:
         result = shardStack?.lastPingTimestamp !== -1 ? shardStack?.lastPingTimestamp : "N/A";
+        break;
 
       case ShardInfo.ready:
         result = shardStack?.ready || "Not available";
+        break;
 
       default:
         result = shardStack || { message: "Shard not found or invalid type" };
+        break;
       }
     return this.success(result ? JSON.stringify(result) : "No data available");
   },

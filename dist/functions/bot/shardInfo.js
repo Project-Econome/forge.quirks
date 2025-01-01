@@ -49,23 +49,28 @@ exports.default = new forgescript_1.NativeFunction({
                 result = 'Not available';
             }
         }
-        console.log(type);
-        console.log(shardStack);
         switch (type) {
             case types_1.ShardInfo.id:
                 result = shardStack?.id || "Not available";
+                break;
             case types_1.ShardInfo.status:
                 result = shardStack?.status || "Not available";
+                break;
             case types_1.ShardInfo.guildcount:
                 result = shardStack?.guildCount || "Not available";
+                break;
             case types_1.ShardInfo.ping:
                 result = shardStack?.ping || "Not available";
+                break;
             case types_1.ShardInfo.lastPingTimestamp:
                 result = shardStack?.lastPingTimestamp !== -1 ? shardStack?.lastPingTimestamp : "N/A";
+                break;
             case types_1.ShardInfo.ready:
                 result = shardStack?.ready || "Not available";
+                break;
             default:
                 result = shardStack || { message: "Shard not found or invalid type" };
+                break;
         }
         return this.success(result ? JSON.stringify(result) : "No data available");
     },

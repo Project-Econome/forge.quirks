@@ -7,14 +7,14 @@ export default new NativeFunction({
   version: '1.0.0',
   description: "Returns the info on shard.",
   output: ArgType.Number,
-  brackets: true,
+  brackets: false,
   unwrap: true,
   args: [
     {
       name: 'shardID',
       description: 'The ID of the shard to retrieve.',
       type: ArgType.Number,
-      required: false,
+      required: true,
       rest: false
     },
     {

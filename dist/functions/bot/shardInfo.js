@@ -69,10 +69,10 @@ exports.default = new forgescript_1.NativeFunction({
                 result = shardStack?.ready || "Not available";
                 break;
             default:
-                result = shardStack || { message: "Shard not found or invalid type" };
+                result = JSON.stringify(shardStack) || { message: "Shard not found or invalid type" };
                 break;
         }
-        return this.success(result ? JSON.stringify(result) : "No data available");
+        return this.success(result);
     },
 });
 //# sourceMappingURL=shardInfo.js.map

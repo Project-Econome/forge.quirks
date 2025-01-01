@@ -77,9 +77,9 @@ export default new NativeFunction({
         break;
 
       default:
-        result = shardStack || { message: "Shard not found or invalid type" };
+        result = JSON.stringify(shardStack) || { message: "Shard not found or invalid type" };
         break;
       }
-    return this.success(result ? JSON.stringify(result) : "No data available");
+    return this.success(result);
   },
 });

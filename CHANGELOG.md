@@ -13,15 +13,16 @@ All notable changes to this project will be documented in this file.
 - **$cpuTemp** - `Returns the cpu temperature (only works on linux)`
 - **$cpuUsage[**`singleCore`**]** - `Returns the process cpu usage in %`
   - _`singleCore`_ If true will show the process usage on a single core. (`boolean`)
+- **guildIcon[**`guildID`**;**`size?`**;**`extension?`**;**`returnEmpty`**]** - Overwrite add return Empty
 - **$hyperlink** - `Added a embed link argument`
   - _`text`_ The text to turn into a hyperlink. (`string`)
   - _`link`_ The link to direct the text too. (`string`)
   - _`embed?`_ If the bot should embed the link (in normal messages). (`boolean`)
 - **$projectVersion** - `Returns the version in package.json.`
-- **Ram[**`percentage?`**;**`system?`**]** - Returns the ram usage.
+- **$ram[**`percentage?`**;**`system?`**]** - Returns the ram usage.
   - _`percentage?`_ If true it will return the usage in x%. (`boolean`)
   - _`system?`_ If true will show the usage of the system. if false will show the process usage. (`boolean`)
-- **RamTotal** - Returns the total amount ram.
+- **$ramTotal** - Returns the total amount ram.
 - **$roundtripPing** - `Returns the ping between the client and the discord servers.`
 - **$shardInfo[**`shardID`**;**`type?`**]** - `Returns info on a shard.`
   - **shardID:** The id of the shard.

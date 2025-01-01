@@ -43,7 +43,7 @@ exports.default = new forgescript_1.NativeFunction({
                     ready: shard.status === 0 ? 'Ready' : 'Not Ready',
                     guildCount,
                 };
-                shardStack = shardInfo;
+                shardStack = shardInfo[shard.id];
             }
             else {
                 result = 'Not available';
@@ -52,19 +52,19 @@ exports.default = new forgescript_1.NativeFunction({
         console.log(shardStack);
         switch (type) {
             case types_1.ShardInfo.id:
-                result = shardInfo.id;
+                result = shardStack?.id || "Not available";
             case types_1.ShardInfo.status:
-                result = shardInfo.status;
+                result = shardStack?.status || "Not available";
             case types_1.ShardInfo.guildcount:
-                result = shardInfo.guildcount;
+                result = shardStack?.guildCount || "Not available";
             case types_1.ShardInfo.ping:
-                result = shardInfo.ping;
+                result = shardStack?.ping || "Not available";
             case types_1.ShardInfo.lastPingTimestamp:
-                result = shardInfo.lastPingTimestamp;
+                result = shardStack?.lastPingTimestamp || "Not available";
             case types_1.ShardInfo.ready:
-                result = shardInfo.ready;
+                result = shardStack?.ready || "Not available";
             default:
-                result = { id: shardInfo.id, status: shardInfo.status, guildcount: shardInfo.guildcount, ping: shardInfo.ping, lastPingTimestamp: shardInfo.lastPingTimestamp, ready: shardInfo.ready };
+                result = shardStack || { message: "Shard not found or invalid type" };
         }
         return this.success(result);
     },

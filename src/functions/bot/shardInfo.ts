@@ -45,7 +45,7 @@ export default new NativeFunction({
           ready: shard.status === 0 ? 'Ready' : 'Not Ready',
           guildCount,
         };
-        shardStack = shardInfo;
+        shardStack = shardInfo[shard.id];
       } else {
         result = 'Not available';
       }
@@ -54,26 +54,26 @@ export default new NativeFunction({
     console.log(shardStack)
     switch (type) {
       case ShardInfo.id:
-        result = shardInfo.id;
+        result = shardStack?.id || "Not available";
 
       case ShardInfo.status:
-        result = shardInfo.status;
+        result = shardStack?.status || "Not available";
 
       case ShardInfo.guildcount:
-        result = shardInfo.guildcount;
+        result = shardStack?.guildCount || "Not available";
 
       case ShardInfo.ping:
-        result = shardInfo.ping;
+        result = shardStack?.ping || "Not available";
 
       case ShardInfo.lastPingTimestamp:
-        result = shardInfo.lastPingTimestamp;
+        result = shardStack?.lastPingTimestamp || "Not available";
 
       case ShardInfo.ready:
-        result = shardInfo.ready
+        result = shardStack?.ready || "Not available";
 
       default:
-        result = { id: shardInfo.id, status: shardInfo.status, guildcount: shardInfo.guildcount, ping: shardInfo.ping, lastPingTimestamp: shardInfo.lastPingTimestamp, ready: shardInfo.ready}
-    }
+        result = shardStack || { message: "Shard not found or invalid type" };
+      }
     return this.success(result);
   },
 });

@@ -3,7 +3,7 @@ import { readFileSync } from 'fs';
 import { join } from 'path';
 
 export default new NativeFunction({
-  name: "$projectVersion",
+  name: "$projectversion",
   version: '1.0.0',
   description: "Returns the version from your package.json usage.",
   output: ArgType.String,

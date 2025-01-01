@@ -4,7 +4,7 @@ const forgescript_1 = require("@tryforge/forgescript");
 const fs_1 = require("fs");
 const path_1 = require("path");
 exports.default = new forgescript_1.NativeFunction({
-    name: "$projectVersion",
+    name: "$projectversion",
     version: '1.0.0',
     description: "Returns the version from your package.json usage.",
     output: forgescript_1.ArgType.String,

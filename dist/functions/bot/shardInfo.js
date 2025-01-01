@@ -40,7 +40,7 @@ exports.default = new forgescript_1.NativeFunction({
                     status: discord_js_1.Status[shard.status] || "Unknown",
                     ping: shard.ping,
                     lastPingTimestamp: shard.lastPingTimestamp,
-                    ready: shard.status === 0 ? 'Ready' : 'Not Ready',
+                    ready: shard.status === 0 ? 'true' : 'false',
                     guildCount,
                 };
                 shardStack = shardInfo[shard.id];

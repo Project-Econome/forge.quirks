@@ -42,7 +42,7 @@ export default new NativeFunction({
           status: Status[shard.status] || "Unknown",
           ping: shard.ping,
           lastPingTimestamp: shard.lastPingTimestamp,
-          ready: shard.status === 0 ? 'Ready' : 'Not Ready',
+          ready: shard.status === 0 ? 'true' : 'false',
           guildCount,
         };
         shardStack = shardInfo[shard.id];

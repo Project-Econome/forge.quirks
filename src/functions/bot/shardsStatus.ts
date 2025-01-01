@@ -10,11 +10,11 @@ export default new NativeFunction({
 
   async execute(ctx) {
     const statusMap: Record<number, string> = {};
-  
+
     ctx.client.ws.shards.forEach(shard => {
       statusMap[shard.id] = Status[shard.status] || "Unknown";
     });
-  
+
     return this.success(JSON.stringify(statusMap));
   },
 });

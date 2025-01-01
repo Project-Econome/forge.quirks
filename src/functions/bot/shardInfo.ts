@@ -7,14 +7,13 @@ export default new NativeFunction({
   version: '1.0.0',
   description: "Returns the info on shard.",
   output: ArgType.Number,
-  brackets: true,
   unwrap: true,
   args: [
     {
       name: 'shardID',
       description: 'The ID of the shard to retrieve.',
       type: ArgType.Number,
-      required: true,
+      required: false,
       rest: false
     },
     {
@@ -31,6 +30,7 @@ export default new NativeFunction({
     const shardInfo: Record<string, any> = {};
     let shardStack = null
     let result: any = null;
+    sid = sid !== undefined ? Number(sid) : 0;
 
     if (sid !== undefined) {
       const shard = ctx.client.ws.shards.get(sid);

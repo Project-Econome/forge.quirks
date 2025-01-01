@@ -8,14 +8,13 @@ exports.default = new forgescript_1.NativeFunction({
     version: '1.0.0',
     description: "Returns the info on shard.",
     output: forgescript_1.ArgType.Number,
-    brackets: true,
     unwrap: true,
     args: [
         {
             name: 'shardID',
             description: 'The ID of the shard to retrieve.',
             type: forgescript_1.ArgType.Number,
-            required: true,
+            required: false,
             rest: false
         },
         {
@@ -31,6 +30,7 @@ exports.default = new forgescript_1.NativeFunction({
         const shardInfo = {};
         let shardStack = null;
         let result = null;
+        sid = sid !== undefined ? Number(sid) : 0;
         if (sid !== undefined) {
             const shard = ctx.client.ws.shards.get(sid);
             if (shard) {

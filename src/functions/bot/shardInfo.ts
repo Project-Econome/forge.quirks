@@ -30,7 +30,7 @@ export default new NativeFunction({
   async execute(ctx, [sid, type]) {
     const shardInfo: Record<string, any> = {};
     let shardStack = null
-    let result = null
+    let result: any = null;
 
     if (sid !== undefined) {
       const shard = ctx.client.ws.shards.get(sid);

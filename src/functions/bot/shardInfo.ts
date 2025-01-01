@@ -51,7 +51,7 @@ export default new NativeFunction({
       }
     }
 
-    console.log(sid)
+    console.log(type)
 
     console.log(shardStack)
 

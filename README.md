@@ -10,6 +10,6 @@ A quirky extension for the out-of-the-box thinkers. Add small but powerful tweak
 
 ## FAQ
 
-### **Q:** Do i need forgescript?
+### **Q:** Do i need Forge.quirks?
 
 - **A:** No, most users won't need Forge.quirks it just adds a couple functions that some of us just like more/want to have.

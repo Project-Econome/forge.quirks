@@ -12,11 +12,10 @@ export default new NativeFunction({
 
   async execute(ctx) {
     const start = performance.now();
-    let result = null
-    const latency = void await ctx.client.rest.get(Routes.user("@me"))
-
-
-
+    let latency = null
+    void await ctx.client.rest.get(Routes.user("@me"))
+    const end = performance.now()
+    latency = start - end
     return this.success(latency);
   },
 });

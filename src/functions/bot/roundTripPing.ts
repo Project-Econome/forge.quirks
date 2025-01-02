@@ -1,6 +1,6 @@
 import { ArgType, NativeFunction } from "@tryforge/forgescript";
-import https from 'https';
 import { performance } from 'perf_hooks';
+import { Routes } from 'discord.js'
 
 export default new NativeFunction({
   name: "$roundtripping",
@@ -13,35 +13,10 @@ export default new NativeFunction({
   async execute(ctx) {
     const start = performance.now();
     let result = null
+    const latency = void await ctx.client.rest.get(Routes.user("@me"))
 
-    const latency = await new Promise<string>((resolve, reject) => {
-      https.get(
-        'https://discord.com/api/v10/users/@me',
-        {
-          headers: {
-            Authorization: `Bot ${ctx.client.token}`,
-          },
-        },
-        (response) => {
-          let data = '';
-  
-          response.on('data', (chunk) => {
-            data += chunk;
-          });
-  
-          response.on('end', () => {
-            const end = performance.now();
-            const latency = end - start;
-            resolve(`${latency.toFixed(2)}ms`);
-          });
-        }
-      ).on('error', (err) => {
-        reject(err);
-      });
-    }).catch((err) => {
-      this.customError('Error failed to make roundtrip:');
-      return;
-    });
+
+
     return this.success(latency);
   },
 });

@@ -17,12 +17,12 @@ export default new NativeFunction({
   ],
   unwrap: true,
   async execute(ctx, [emoji]) {
-    let name = 'name'
-    let id = 1122334455667788990;
+    let name = null
+    let id = null;
     try {
       const data = ctx.client.application.emojis.fetch(`${emoji}`)
-      const name = (await data).name
-      const id = (await data).id
+      name = (await data).name
+      id = (await data).id
     } catch (err) {
       if (err instanceof Error) {
         return this.error(err)

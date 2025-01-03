@@ -16,7 +16,7 @@ exports.default = new forgescript_1.NativeFunction({
         void await ctx.client.rest.get(discord_js_1.Routes.user("@me"));
         const end = perf_hooks_1.performance.now();
         latency = end - start;
-        return this.success(latency.toFixed(2));
+        return this.success(`${latency.toFixed(2)}ms`);
     },
 });
 //# sourceMappingURL=roundTripPing.js.map

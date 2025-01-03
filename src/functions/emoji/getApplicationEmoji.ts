@@ -17,15 +17,16 @@ export default new NativeFunction({
   ],
   unwrap: true,
   async execute(ctx, [emoji]) {
-    let name = null
+    let name = null; let animated = null; let result = null;
     try {
       const data = ctx.client.application.emojis.fetch(`${emoji}`)
+      animated = (await data).animated
       name = (await data).name
     } catch (err) {
       if (err instanceof Error) {
         return this.error(err)
       }
     }
-    return this.success(`<:${name}:${emoji}>`)
+    return this.success(animated ? `<a:${name}:${emoji}>` : `<:${name}:${emoji}>`);
   },
 })

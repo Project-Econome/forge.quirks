@@ -12,7 +12,7 @@ export default new NativeFunction({
       description: "The emojiID to retrieve icon",
       rest: false,
       required: true,
-      type: ArgType.Emoji,
+      type: ArgType.String,
     }
   ],
   unwrap: true,

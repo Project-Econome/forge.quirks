@@ -13,7 +13,7 @@ exports.default = new forgescript_1.NativeFunction({
             description: "The emojiID to retrieve icon",
             rest: false,
             required: true,
-            type: forgescript_1.ArgType.Emoji,
+            type: forgescript_1.ArgType.String,
         }
     ],
     unwrap: true,

@@ -15,7 +15,7 @@ exports.default = new forgescript_1.NativeFunction({
         let latency = null;
         void await ctx.client.rest.get(discord_js_1.Routes.user("@me"));
         const end = perf_hooks_1.performance.now();
-        latency = start - end;
+        latency = end - start;
         return this.success(latency);
     },
 });

@@ -15,7 +15,7 @@ export default new NativeFunction({
     let latency = null
     void await ctx.client.rest.get(Routes.user("@me"))
     const end = performance.now()
-    latency = start - end
+    latency = end - start
     return this.success(latency);
   },
 });

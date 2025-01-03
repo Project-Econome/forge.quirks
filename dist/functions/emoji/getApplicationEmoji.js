@@ -4,7 +4,7 @@ const forgescript_1 = require("@tryforge/forgescript");
 exports.default = new forgescript_1.NativeFunction({
     name: "$getApplicationEmoji",
     version: "1.0.0",
-    description: "Returns the server icon",
+    description: "Returns an application emote",
     brackets: false,
     output: forgescript_1.ArgType.Emoji,
     args: [

@@ -18,9 +18,18 @@ exports.default = new forgescript_1.NativeFunction({
     ],
     unwrap: true,
     async execute(ctx, [emoji]) {
-        const data = ctx.client.application.emojis.fetch(`${emoji}`);
-        const name = (await data).name;
-        const id = (await data).id;
+        let name = 'name';
+        let id = 1122334455667788990;
+        try {
+            const data = ctx.client.application.emojis.fetch(`${emoji}`);
+            const name = (await data).name;
+            const id = (await data).id;
+        }
+        catch (err) {
+            if (err instanceof Error) {
+                return this.error(err);
+            }
+        }
         return this.success(`<:${name}:${id}>`);
     },
 });

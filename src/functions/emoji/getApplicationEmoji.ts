@@ -3,7 +3,7 @@ import { ArgType, NativeFunction } from "@tryforge/forgescript"
 export default new NativeFunction({
   name: "$getApplicationEmoji",
   version: "1.0.0",
-  description: "Returns the server icon",
+  description: "Returns an application emote",
   brackets: false,
   output: ArgType.Emoji,
   args: [

@@ -22,9 +22,9 @@ exports.default = new forgescript_1.NativeFunction({
         let animated = null;
         let result = null;
         try {
-            const data = ctx.client.application.emojis.fetch(`${emoji}`);
-            animated = (await data).animated;
-            name = (await data).name;
+            const data = await ctx.client.application.emojis.fetch(emoji);
+            animated = data.animated;
+            name = data.name;
         }
         catch (err) {
             if (err instanceof Error) {

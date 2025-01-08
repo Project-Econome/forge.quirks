@@ -11,6 +11,6 @@ export default new NativeFunction({
 
   async execute(ctx) {
     const system = await si.osInfo()
-    return this.success(system.distro);
+    return this.success(system.distro + ' ' + system.release);
   },
 });

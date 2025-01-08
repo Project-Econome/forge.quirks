@@ -14,7 +14,7 @@ exports.default = new forgescript_1.NativeFunction({
     unwrap: false,
     async execute(ctx) {
         const system = await systeminformation_1.default.osInfo();
-        return this.success(system.distro);
+        return this.success(system.distro + ' ' + system.release);
     },
 });
 //# sourceMappingURL=osDistro.js.map

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.1.1](https://github.com/LynnuxDev/forge.quirks/compare/v1.1.0...v1.1.1) (2025-01-08)
+
+
+### Bug Fixes
+
+* batteryTimeRemaining. ([29f5d3b](https://github.com/LynnuxDev/forge.quirks/commit/29f5d3b2a7cde41f9fff2cfdc9ff5d8c3e88e7f4))
+
 ## [1.1.0](https://github.com/LynnuxDev/forge.quirks/compare/v1.0.0...v1.1.0) (2025-01-08)
 
 

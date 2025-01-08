@@ -13,8 +13,14 @@ exports.default = new forgescript_1.NativeFunction({
     output: forgescript_1.ArgType.Number,
     unwrap: false,
     async execute(ctx) {
+        let result;
         const battery = await systeminformation_1.default.battery();
-        return this.success(battery.timeRemaining);
+        if (battery.hasBattery) {
+            result = battery.timeRemaining;
+        }
+        else
+            (result = 'No battery Attached');
+        return this.success(result);
     },
 });
 //# sourceMappingURL=batteryTimeRemaining.js.map

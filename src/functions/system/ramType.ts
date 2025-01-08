@@ -12,6 +12,6 @@ export default new NativeFunction({
   async execute(ctx) {
     const memory = await si.memLayout();
     const type = memory[0].type;
-    return this.success(type);
+    return this.success(`type = '${type}'`);
   },
 });

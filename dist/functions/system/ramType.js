@@ -15,7 +15,7 @@ exports.default = new forgescript_1.NativeFunction({
     async execute(ctx) {
         const memory = await systeminformation_1.default.memLayout();
         const type = memory[0].type;
-        return this.success(type);
+        return this.success(`type = '${type}'`);
     },
 });
 //# sourceMappingURL=ramType.js.map

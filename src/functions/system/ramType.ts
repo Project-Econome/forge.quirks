@@ -1,5 +1,7 @@
 import { ArgType, NativeFunction } from "@tryforge/forgescript";
 import si from "systeminformation";
+import os from 'os';
+import { execSync } from "child_process";
 
 export default new NativeFunction({
   name: "$ramType",
@@ -10,12 +12,36 @@ export default new NativeFunction({
   unwrap: false,
 
   async execute(ctx) {
+    let result
     const memory = await si.memLayout();
-    console.log(memory)
-    if (!memory.length || !memory[0].type) {
-      return this.error(new Error("Memory information is not fully available."));
-    }
+    try {
+      if (memory[0]?.type) {
+        result = memory[0].type;
+      } else {
+        if (os.platform() === 'linux') {
+          try {
+            const output = execSync('dmidecode --type memory', { encoding: 'utf8' });
+            const memoryTypeMatch = output.match(/Type:\s*(\S+)/);
 
-    return this.success(memory[0]?.type || "Unknown memory type");
+            if (memoryTypeMatch) {
+              result = memoryTypeMatch[1];
+            } else {
+              this.error(new Error('Unable to determine memory type via dmidecode.'));
+            }
+          } catch (error) {
+            if (error instanceof Error) {
+              return this.error(error);
+            }
+          }
+        } else {
+          return this.error(new Error('Memory type information is not available and system is not Linux.'));
+        }
+      }
+    } catch (error) {
+      if (error instanceof Error) {
+        return this.error(error);
+      }
+    }
+    return this.success(result);
   },
 });

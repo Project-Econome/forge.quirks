@@ -5,6 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const forgescript_1 = require("@tryforge/forgescript");
 const systeminformation_1 = __importDefault(require("systeminformation"));
+const os_1 = __importDefault(require("os"));
+const child_process_1 = require("child_process");
 exports.default = new forgescript_1.NativeFunction({
     name: "$ramType",
     aliases: ['$memoryType'],
@@ -13,12 +15,41 @@ exports.default = new forgescript_1.NativeFunction({
     output: forgescript_1.ArgType.String,
     unwrap: false,
     async execute(ctx) {
+        let result;
         const memory = await systeminformation_1.default.memLayout();
-        console.log(memory);
-        if (!memory.length || !memory[0].type) {
-            return this.error(new Error("Memory information is not fully available."));
+        try {
+            if (memory[0]?.type) {
+                result = memory[0].type;
+            }
+            else {
+                if (os_1.default.platform() === 'linux') {
+                    try {
+                        const output = (0, child_process_1.execSync)('dmidecode --type memory', { encoding: 'utf8' });
+                        const memoryTypeMatch = output.match(/Type:\s*(\S+)/);
+                        if (memoryTypeMatch) {
+                            result = memoryTypeMatch[1];
+                        }
+                        else {
+                            this.error(new Error('Unable to determine memory type via dmidecode.'));
+                        }
+                    }
+                    catch (error) {
+                        if (error instanceof Error) {
+                            return this.error(error);
+                        }
+                    }
+                }
+                else {
+                    return this.error(new Error('Memory type information is not available and system is not Linux.'));
+                }
+            }
         }
-        return this.success(memory[0]?.type || "Unknown memory type");
+        catch (error) {
+            if (error instanceof Error) {
+                return this.error(error);
+            }
+        }
+        return this.success(result);
     },
 });
 //# sourceMappingURL=ramType.js.map

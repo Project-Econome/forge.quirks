@@ -23,7 +23,7 @@ export default new NativeFunction({
   async execute(ctx, [unit]) {
     unit ??= FileUnit.MB
     const memory = await si.mem();
-    const totalMemory = memory.total / (1024 ** (unit + 1));
+    const totalMemory = memory.total / (1024 ** unit);
 
     return this.success(totalMemory.toFixed(2) + FileUnit[unit] );
   },

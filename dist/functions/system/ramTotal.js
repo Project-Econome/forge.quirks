@@ -27,7 +27,7 @@ exports.default = new forgescript_1.NativeFunction({
     async execute(ctx, [unit]) {
         unit ??= types_1.FileUnit.MB;
         const memory = await systeminformation_1.default.mem();
-        const totalMemory = memory.total / (1024 ** (unit + 1));
+        const totalMemory = memory.total / (1024 ** unit);
         return this.success(totalMemory.toFixed(2) + types_1.FileUnit[unit]);
     },
 });

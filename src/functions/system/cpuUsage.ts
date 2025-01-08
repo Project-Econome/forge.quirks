@@ -3,7 +3,7 @@ import pidusage from "pidusage";
 import os from "os";
 
 export default new NativeFunction({
-  name: "$cpuUsage",
+  name: "$cpuGay",
   version: '1.0.0',
   description: "Returns the cpu usage of the process.",
   output: ArgType.Number,

@@ -15,8 +15,8 @@ exports.default = new forgescript_1.NativeFunction({
     async execute(ctx) {
         const memory = await systeminformation_1.default.memLayout();
         console.log(memory);
-        if (!memory || memory.length === 0) {
-            console.log("Unable to retrieve memory layout information.");
+        if (!memory.length || !memory[0].type) {
+            return this.error(new Error("Memory information is not fully available."));
         }
         return this.success(memory[0]?.type || "Unknown memory type");
     },

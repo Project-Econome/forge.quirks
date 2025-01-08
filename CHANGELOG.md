@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.1.0](https://github.com/LynnuxDev/forge.quirks/compare/v1.0.0...v1.1.0) (2025-01-08)
+
+
+### Features
+
+* Added battery related features. ([bca255e](https://github.com/LynnuxDev/forge.quirks/commit/bca255ec62b53c8e2011eb01925fcfa4aba313c9))
+* Added osDistro ([b84f2bc](https://github.com/LynnuxDev/forge.quirks/commit/b84f2bcc13bd9fc6a22d2be45dff1d6f6ee9128c))
+* Added osHost ([55d8bf4](https://github.com/LynnuxDev/forge.quirks/commit/55d8bf4a1dd4d95e64386f3ee053719f9a4584b2))
+* ramType to display ram type. ([0b92bc6](https://github.com/LynnuxDev/forge.quirks/commit/0b92bc6ba55892a414f65dc82ba4489e5f68761b))
+* REMOVED memoryType do to requiring SUDO access. ([c73b96e](https://github.com/LynnuxDev/forge.quirks/commit/c73b96ef6ca15494bbe0b2640663c9a1b53e5469))
+
 ## 1.0.0 (2025-01-08)
 
 

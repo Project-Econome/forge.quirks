@@ -1,6 +1,6 @@
 {
   "name": "forge.quirks",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A quirky extension for the out-of-the-box thinkers. Add small but powerful tweaks to forgescript and fill in those niche gaps for a more personalized experience.",
   "main": "dist/index.js",
   "scripts": {

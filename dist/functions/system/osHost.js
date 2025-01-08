@@ -6,15 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const forgescript_1 = require("@tryforge/forgescript");
 const systeminformation_1 = __importDefault(require("systeminformation"));
 exports.default = new forgescript_1.NativeFunction({
-    name: "$osDistro",
-    aliases: ['$distro'],
+    name: "$osHost",
     version: '1.0.0',
-    description: "Returns the operating system distro usage.",
+    description: "Returns the operating system host usage.",
     output: forgescript_1.ArgType.String,
     unwrap: false,
     async execute(ctx) {
         const system = await systeminformation_1.default.osInfo();
-        return this.success(system.distro);
+        return this.success(system.hostname + "@" + system.fqdn);
     },
 });
-//# sourceMappingURL=osDistro.js.map
+//# sourceMappingURL=osHost.js.map

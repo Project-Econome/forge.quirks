@@ -6,15 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const forgescript_1 = require("@tryforge/forgescript");
 const systeminformation_1 = __importDefault(require("systeminformation"));
 exports.default = new forgescript_1.NativeFunction({
-    name: "$batteryIsCharging",
-    aliases: ['$isCharging'],
+    name: "$batteryPercent",
     version: '1.0.0',
-    description: "Returns if the battery is charging.",
-    output: forgescript_1.ArgType.Boolean,
+    description: "Returns the percentage of the battery.",
+    output: forgescript_1.ArgType.String,
     unwrap: false,
     async execute(ctx) {
         const battery = await systeminformation_1.default.battery();
-        return this.success(battery.isCharging);
+        return this.success(battery.percent + '%');
     },
 });
-//# sourceMappingURL=batteryIsCharging.js.map
+//# sourceMappingURL=batteryPercent.js.map

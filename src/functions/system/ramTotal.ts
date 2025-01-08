@@ -5,7 +5,7 @@ import { FileUnit } from "../../types";
 export default new NativeFunction({
   name: "$ramtotal",
   version: '1.0.0',
-  description: "Returns the total ram (in GB).",
+  description: "Returns the total ram.",
   output: ArgType.String,
   brackets: false,
   unwrap: true,
@@ -20,26 +20,10 @@ export default new NativeFunction({
     }
   ],
   async execute(ctx, [unit]) {
+    unit ??= FileUnit.MB
     const memory = await si.mem();
     const totalMemory = memory.total;
-    let result = 'N/A'
 
-    switch (unit) {
-      case FileUnit.KB:
-        result = (totalMemory / 1024).toFixed(2) + " KB";
-        break;
-      case FileUnit.MB:
-        result =  (totalMemory / (1024 * 1024)).toFixed(2) + " MB";
-        break;
-      case FileUnit.GB:
-        result =  (totalMemory / (1024 * 1024 * 1024)).toFixed(2) + " GB";
-        break;
-      case FileUnit.B:
-      default:
-        result =  totalMemory.toFixed(2) + " B";
-        break;
-    }
-
-    return this.success(result);
+    return this.success(totalMemory / (1024 ** (unit + 1)) + FileUnit[unit] );
   },
 });

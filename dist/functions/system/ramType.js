@@ -14,8 +14,11 @@ exports.default = new forgescript_1.NativeFunction({
     unwrap: false,
     async execute(ctx) {
         const memory = await systeminformation_1.default.memLayout();
-        const type = memory[0].type;
-        return this.success(`type = '${type}'`);
+        console.log(memory);
+        if (!memory || memory.length === 0) {
+            console.log("Unable to retrieve memory layout information.");
+        }
+        return this.success(memory[0]?.type || "Unknown memory type");
     },
 });
 //# sourceMappingURL=ramType.js.map

@@ -11,7 +11,11 @@ export default new NativeFunction({
 
   async execute(ctx) {
     const memory = await si.memLayout();
-    const type = memory[0].type;
-    return this.success(`type = '${type}'`);
+    console.log(memory);
+    if (!memory || memory.length === 0) {
+      console.log("Unable to retrieve memory layout information.");
+    }
+
+    return this.success(memory[0]?.type || "Unknown memory type");
   },
 });

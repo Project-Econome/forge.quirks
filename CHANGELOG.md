@@ -1,42 +1,29 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
----
+## 1.0.0 (2025-01-08)
 
-## [1.0.0] (2025-01-01)
 
-### Added
+### Features
 
-- **$dbPing** - `Returns the ping of the forge.db`
-  - Will be removed since forge.db will have this natively.
-- **$cpuTemp** - `Returns the cpu temperature (only works on linux)`
-- **$cpuUsage[**`singleCore`**]** - `Returns the process cpu usage in %`
-  - _`singleCore`_ If true will show the process usage on a single core. (`boolean`)
-- **guildIcon[**`guildID`**;**`size?`**;**`extension?`**;**`returnEmpty`**]** - Overwrite add return Empty
-- **$hyperlink** - `Added a embed link argument`
-  - _`text`_ The text to turn into a hyperlink. (`string`)
-  - _`link`_ The link to direct the text too. (`string`)
-  - _`embed?`_ If the bot should embed the link (in normal messages). (`boolean`)
-- **$projectVersion** - `Returns the version in package.json.`
-- **$ram[**`percentage?`**;**`system?`**]** - Returns the ram usage.
-  - _`percentage?`_ If true it will return the usage in x%. (`boolean`)
-  - _`system?`_ If true will show the usage of the system. if false will show the process usage. (`boolean`)
-- **$ramTotal** - Returns the total amount ram.
-- **$roundtripPing** - `Returns the ping between the client and the discord servers.`
-- **$shardInfo[**`shardID`**;**`type?`**]** - `Returns info on a shard.`
-  - **shardID:** The id of the shard.
-  - **Type?:** The value to extract `(if nothing it returns everything as json)`
-    - _`id`_ Returns the id of the shard. (`number`)
-    - _`status`_ Returns the status of the shard. ([Status](https://github.com/discordjs/discord.js/blob/main/packages/discord.js/typings/index.d.ts#L5511))
-    - _`ping`_ Returns the ping of the shard. (`number`)
-    - _`lastPingTimestamp`_ Returns the last shard ping received from discord. (`number`)
-    - _`ready`_ Returns if the shard is ready or not. (`boolean`)
-    - _`guildcount`_ Returns the amount of guilds on the shard. (`number`)
-- **$shardStatus** - `Return a json of all shards and their status.`
-- **$shardsOnline** - `Returns the total amount of online shards.`
-- **$shardsOffline** - `Returns the total amount of offline shards.`
-- **$shardsIdle** - `Returns the total amount of Idle shards.`
-- **$shardCount** - `Returns the total amount of shards.`
-- **$smallText[**`text`**]**
-  - _`text`_ The text to make small, Only works on new lines!
+* ramType to display ram type ([9611b1a](https://github.com/LynnuxDev/forge.quirks/commit/9611b1a94560c73f363ca34b63d7dec81d62fd5c))
+
+
+### Bug Fixes
+
+* Added alias. ([f811bdd](https://github.com/LynnuxDev/forge.quirks/commit/f811bddb672da0d937c07bf972615fd5ced145dc))
+* cpuUsage didnt unwrap. ([03119af](https://github.com/LynnuxDev/forge.quirks/commit/03119affbeff9e9b59bc052522583e1a0b8d1c7f))
+* cpuUsage didnt unwrap. ([9225d87](https://github.com/LynnuxDev/forge.quirks/commit/9225d871b55a9e2ee32c73c98a88b8c632a78b76))
+* cpuUsage didnt unwrap. ([ff845e7](https://github.com/LynnuxDev/forge.quirks/commit/ff845e7d7efc7e31e5e9b7298da522d3b542d55e))
+* cpuUsage didnt unwrap. ([83f78ce](https://github.com/LynnuxDev/forge.quirks/commit/83f78ce203633ad76a8c02048b1060be3eb4084a))
+* ramTotal now returns in mb by default. ([aa55238](https://github.com/LynnuxDev/forge.quirks/commit/aa5523873ce967b3222a8b535e0cb6407f748ee7))
+* ramTotal now returns in mb by default. ([7d0c4a7](https://github.com/LynnuxDev/forge.quirks/commit/7d0c4a7007c56dca36e1b4ea6f3e7e3b1aaf0000))
+* ramTotal now returns in mb by default. ([25a98ba](https://github.com/LynnuxDev/forge.quirks/commit/25a98ba4ad4d2474d2b583b8de582567bf9b121a))
+* ramTotal now returns in mb by default. ([b6de092](https://github.com/LynnuxDev/forge.quirks/commit/b6de092f2b59ec04857adcb7e190e52596df0a63))
+* ramTotal now returns in mb by default. ([7ad1df4](https://github.com/LynnuxDev/forge.quirks/commit/7ad1df4cb9b760769666fc0eab70c8d0c9e0c4d3))
+
+
+### Performance Improvements
+
+* Stoped using raw request ([55e71cc](https://github.com/LynnuxDev/forge.quirks/commit/55e71cc1e8dc5e78ab28775dc8bbfb9911c18601))

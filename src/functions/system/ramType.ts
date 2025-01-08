@@ -7,7 +7,6 @@ export default new NativeFunction({
   version: '1.0.0',
   description: "Returns the ram type.",
   output: ArgType.String,
-  brackets: false,
   unwrap: false,
 
   async execute(ctx) {

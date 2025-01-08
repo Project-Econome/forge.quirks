@@ -11,7 +11,6 @@ exports.default = new forgescript_1.NativeFunction({
     version: '1.0.0',
     description: "Returns the ram type.",
     output: forgescript_1.ArgType.String,
-    brackets: false,
     unwrap: false,
     async execute(ctx) {
         const memory = await systeminformation_1.default.memLayout();

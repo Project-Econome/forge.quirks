@@ -7,7 +7,6 @@ export default new NativeFunction({
   description: "Returns the operating system host usage.",
   output: ArgType.String,
   unwrap: false,
-
   async execute(ctx) {
     const system = await si.osInfo()
     return this.success(system.hostname + "@" + system.fqdn);

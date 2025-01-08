@@ -7,7 +7,7 @@ const forgescript_1 = require("@tryforge/forgescript");
 const pidusage_1 = __importDefault(require("pidusage"));
 const os_1 = __importDefault(require("os"));
 exports.default = new forgescript_1.NativeFunction({
-    name: "$cpuUsage",
+    name: "$cpugay",
     version: '1.0.0',
     description: "Returns the cpu usage of the process.",
     output: forgescript_1.ArgType.Number,

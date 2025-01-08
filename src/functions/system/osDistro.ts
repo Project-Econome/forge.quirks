@@ -11,7 +11,7 @@ export default new NativeFunction({
 
   async execute(ctx) {
     let result = 'Check console'
-    const system = si.osInfo()
+    const system = await si.osInfo()
     console.log(system)
     return this.success(result);
   },

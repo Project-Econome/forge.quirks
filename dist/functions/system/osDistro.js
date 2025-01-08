@@ -14,7 +14,7 @@ exports.default = new forgescript_1.NativeFunction({
     unwrap: false,
     async execute(ctx) {
         let result = 'Check console';
-        const system = systeminformation_1.default.osInfo();
+        const system = await systeminformation_1.default.osInfo();
         console.log(system);
         return this.success(result);
     },

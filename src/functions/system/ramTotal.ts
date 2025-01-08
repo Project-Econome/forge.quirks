@@ -4,6 +4,7 @@ import { FileUnit } from "../../types";
 
 export default new NativeFunction({
   name: "$ramtotal",
+  aliases: ['$totalram'],
   version: '1.0.0',
   description: "Returns the total ram.",
   output: ArgType.String,

@@ -8,7 +8,7 @@ const systeminformation_1 = __importDefault(require("systeminformation"));
 const types_1 = require("../../types");
 exports.default = new forgescript_1.NativeFunction({
     name: "$ramtotal",
-    aliases: ['$totalram'],
+    aliases: ['$totalRam', '$totalMemory', '$memoryTotal'],
     version: '1.0.0',
     description: "Returns the total ram.",
     output: forgescript_1.ArgType.String,

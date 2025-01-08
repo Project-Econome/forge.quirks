@@ -9,7 +9,13 @@ export default new NativeFunction({
   output: ArgType.Number,
   unwrap: false,
   async execute(ctx) {
+    let result
     const battery = await si.battery()
-    return this.success(battery.timeRemaining);
+    if (battery.hasBattery) {
+      result = battery.timeRemaining
+    } else (
+      result = 'No battery Attached'
+    )
+    return this.success(result);
   },
 });

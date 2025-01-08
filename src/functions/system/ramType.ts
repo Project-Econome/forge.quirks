@@ -20,13 +20,13 @@ export default new NativeFunction({
       } else {
         if (os.platform() === 'linux') {
           try {
-            const output = execSync('dmidecode --type memory', { encoding: 'utf8' });
-            const memoryTypeMatch = output.match(/Type:\s*(\S+)/);
+            const output = execSync('lshw -class memory', { encoding: 'utf8' });
+            const memoryTypeMatch = output.match(/description: (\S+)/);
 
             if (memoryTypeMatch) {
               result = memoryTypeMatch[1];
             } else {
-              this.error(new Error('Unable to determine memory type via dmidecode.'));
+              this.error(new Error('Unable to determine memory type via lshw.'));
             }
           } catch (error) {
             if (error instanceof Error) {

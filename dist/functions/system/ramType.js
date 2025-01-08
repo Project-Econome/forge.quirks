@@ -24,13 +24,13 @@ exports.default = new forgescript_1.NativeFunction({
             else {
                 if (os_1.default.platform() === 'linux') {
                     try {
-                        const output = (0, child_process_1.execSync)('dmidecode --type memory', { encoding: 'utf8' });
-                        const memoryTypeMatch = output.match(/Type:\s*(\S+)/);
+                        const output = (0, child_process_1.execSync)('lshw -class memory', { encoding: 'utf8' });
+                        const memoryTypeMatch = output.match(/description: (\S+)/);
                         if (memoryTypeMatch) {
                             result = memoryTypeMatch[1];
                         }
                         else {
-                            this.error(new Error('Unable to determine memory type via dmidecode.'));
+                            this.error(new Error('Unable to determine memory type via lshw.'));
                         }
                     }
                     catch (error) {

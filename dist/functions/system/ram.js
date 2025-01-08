@@ -8,7 +8,7 @@ const pidusage_1 = __importDefault(require("pidusage"));
 const systeminformation_1 = __importDefault(require("systeminformation"));
 exports.default = new forgescript_1.NativeFunction({
     name: "$ram",
-    aliases: ['$ramUsage'],
+    aliases: ['$ramUsage', '$memory', '$memoryUsage'],
     version: '1.0.0',
     description: "Returns the ram usage.",
     output: forgescript_1.ArgType.String,

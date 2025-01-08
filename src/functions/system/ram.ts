@@ -5,7 +5,7 @@ import os from 'os';
 
 export default new NativeFunction({
   name: "$ram",
-  aliases: ['$ramUsage'],
+  aliases: ['$ramUsage','$memory','$memoryUsage'],
   version: '1.0.0',
   description: "Returns the ram usage.",
   output: ArgType.String,

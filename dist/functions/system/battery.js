@@ -13,7 +13,7 @@ exports.default = new forgescript_1.NativeFunction({
     unwrap: false,
     async execute(ctx) {
         const battery = await systeminformation_1.default.battery();
-        return this.success(battery);
+        return this.success(JSON.stringify(battery));
     },
 });
 //# sourceMappingURL=battery.js.map

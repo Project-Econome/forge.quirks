@@ -9,6 +9,6 @@ export default new NativeFunction({
   unwrap: false,
   async execute(ctx) {
     const battery = await si.battery()
-    return this.success(battery);
+    return this.success(JSON.stringify(battery));
   },
 });

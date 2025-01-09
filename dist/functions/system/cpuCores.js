@@ -6,14 +6,14 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const forgescript_1 = require("@tryforge/forgescript");
 const systeminformation_1 = __importDefault(require("systeminformation"));
 exports.default = new forgescript_1.NativeFunction({
-    name: "$battery",
-    version: '1.0.0',
-    description: "Returns the whole battery info in a json.",
-    output: forgescript_1.ArgType.Json,
+    name: "$cpuCores",
+    version: "1.0.7",
+    output: forgescript_1.ArgType.Number,
+    description: "Returns the amount of cpu cores",
     unwrap: false,
     async execute(ctx) {
-        const battery = await systeminformation_1.default.battery();
-        return this.success(JSON.stringify(battery));
+        const cpu = await systeminformation_1.default.cpu();
+        return this.success(cpu.physicalCores);
     },
 });
-//# sourceMappingURL=battery.js.map
+//# sourceMappingURL=cpuCores.js.map

@@ -1,6 +1,19 @@
 # Changelog
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
+ 
+## [1.2.0](https://github.com/LynnuxDev/forge.quirks/compare/v1.1.1...v1.2.0) (2025-01-09)
+
+
+### Features
+
+* Added cpuThreads to show total cpu threads. ([c35586a](https://github.com/LynnuxDev/forge.quirks/commit/c35586adbe31222cb315ed663515838b196aece4))
+* Overwrite cpuCores to show the actual core amount. ([08e9157](https://github.com/LynnuxDev/forge.quirks/commit/08e91574b1ff66e83ddf0c0b78061449bceac0f5))
+
+
+### Bug Fixes
+
+* Fixed battery function, now returns full json. ([1d3ebfe](https://github.com/LynnuxDev/forge.quirks/commit/1d3ebfe323cd28bfd50bd3b6cf903d69c3c37eb0))
 
 ## [1.1.1](https://github.com/LynnuxDev/forge.quirks/compare/v1.1.0...v1.1.1) (2025-01-08)
 

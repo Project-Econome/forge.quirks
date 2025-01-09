@@ -11,4 +11,4 @@ export default new NativeFunction({
     const cpu = await si.cpu()
     return this.success(cpu.physicalCores)
   },
-}) 
+})

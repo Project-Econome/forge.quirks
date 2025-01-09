@@ -11,4 +11,4 @@ export default new NativeFunction({
     const battery = await si.battery()
     return this.success(JSON.stringify(battery));
   },
-});
+}); 

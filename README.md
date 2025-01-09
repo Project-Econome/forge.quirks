@@ -10,7 +10,7 @@ A quirky extension for the out-of-the-box thinkers. Add small but powerful tweak
 
 1. More niche functions that the average forgescript user doesn't need. (Example: better systemInfo, better shardInfo, etc)
 
-## FAQ
+## Q&A
 
 ### **Q:** Do i need Forge.quirks?
 
